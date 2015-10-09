@@ -1,0 +1,154 @@
+C:\Workspace\Project\Project\bin\roslyn\csc.exe
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Workspace\Project\Project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Workspace\Project\Project\bin\roslyn\System.Collections.Immutable.dll
+C:\Workspace\Project\Project\bin\roslyn\System.Reflection.Metadata.dll
+C:\Workspace\Project\Project\bin\roslyn\vbc.exe
+C:\Workspace\Project\Project\bin\roslyn\VBCSCompiler.exe
+C:\Workspace\Project\Project\bin\roslyn\VBCSCompiler.exe.config
+C:\Workspace\Project\Project\bin\Project.dll.config
+C:\Workspace\Project\Project\bin\Project.dll
+C:\Workspace\Project\Project\bin\Project.pdb
+C:\Workspace\Project\Project\bin\Antlr3.Runtime.dll
+C:\Workspace\Project\Project\bin\EntityFramework.dll
+C:\Workspace\Project\Project\bin\EntityFramework.SqlServer.dll
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Workspace\Project\Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Google.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Workspace\Project\Project\bin\Microsoft.Web.Infrastructure.dll
+C:\Workspace\Project\Project\bin\Newtonsoft.Json.dll
+C:\Workspace\Project\Project\bin\Owin.dll
+C:\Workspace\Project\Project\bin\System.Web.Helpers.dll
+C:\Workspace\Project\Project\bin\System.Web.Mvc.dll
+C:\Workspace\Project\Project\bin\System.Web.Optimization.dll
+C:\Workspace\Project\Project\bin\System.Web.Razor.dll
+C:\Workspace\Project\Project\bin\System.Web.WebPages.Deployment.dll
+C:\Workspace\Project\Project\bin\System.Web.WebPages.dll
+C:\Workspace\Project\Project\bin\System.Web.WebPages.Razor.dll
+C:\Workspace\Project\Project\bin\WebGrease.dll
+C:\Workspace\Project\Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Workspace\Project\Project\bin\System.Web.Helpers.xml
+C:\Workspace\Project\Project\bin\System.Web.Mvc.xml
+C:\Workspace\Project\Project\bin\System.Web.Optimization.xml
+C:\Workspace\Project\Project\bin\System.Web.Razor.xml
+C:\Workspace\Project\Project\bin\System.Web.WebPages.xml
+C:\Workspace\Project\Project\bin\System.Web.WebPages.Deployment.xml
+C:\Workspace\Project\Project\bin\System.Web.WebPages.Razor.xml
+C:\Workspace\Project\Project\bin\Antlr3.Runtime.pdb
+C:\Workspace\Project\Project\bin\Newtonsoft.Json.xml
+C:\Workspace\Project\Project\bin\EntityFramework.xml
+C:\Workspace\Project\Project\bin\EntityFramework.SqlServer.xml
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Workspace\Project\Project\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Google.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Workspace\Project\Project\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Workspace\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+C:\Workspace\Project\Project\obj\Debug\Project.dll
+C:\Workspace\Project\Project\obj\Debug\Project.pdb
+C:\Workspace\Project\Project\bin\Autofac.dll
+C:\Workspace\Project\Project\bin\Project.Domain.dll
+C:\Workspace\Project\Project\bin\Project.Infrastructure.dll
+C:\Workspace\Project\Project\bin\Project.Domain.pdb
+C:\Workspace\Project\Project\bin\Project.Infrastructure.pdb
+C:\Workspace\Project\Project\bin\Autofac.xml
+C:\Workspace\Project\Project\bin\Autofac.Integration.Mvc.dll
+C:\Workspace\Project\Project\bin\Autofac.Integration.Mvc.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\csc.exe
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\System.Collections.Immutable.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\System.Reflection.Metadata.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\vbc.exe
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\VBCSCompiler.exe
+D:\Workspace\MVC Workspace\Project\Project\bin\roslyn\VBCSCompiler.exe.config
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.dll.config
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.pdb
+D:\Workspace\MVC Workspace\Project\Project\bin\Antlr3.Runtime.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Autofac.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Autofac.Integration.Mvc.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\EntityFramework.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\EntityFramework.SqlServer.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Google.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Web.Infrastructure.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Newtonsoft.Json.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Owin.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.Domain.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.Infrastructure.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Helpers.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Mvc.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Optimization.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Razor.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.Deployment.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.Razor.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\WebGrease.dll
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.Domain.pdb
+D:\Workspace\MVC Workspace\Project\Project\bin\Project.Infrastructure.pdb
+D:\Workspace\MVC Workspace\Project\Project\bin\Autofac.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Autofac.Integration.Mvc.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Helpers.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Mvc.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Optimization.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.Razor.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.Deployment.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\System.Web.WebPages.Razor.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Antlr3.Runtime.pdb
+D:\Workspace\MVC Workspace\Project\Project\bin\Newtonsoft.Json.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\EntityFramework.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\EntityFramework.SqlServer.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Google.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Workspace\MVC Workspace\Project\Project\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Workspace\MVC Workspace\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+D:\Workspace\MVC Workspace\Project\Project\obj\Debug\Project.dll
+D:\Workspace\MVC Workspace\Project\Project\obj\Debug\Project.pdb
