@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Project.Domain.Repositories;
+using Project.Infrastructure.Repositories.Entities;
 
 namespace Project.Infrastructure.Repositories
 {
@@ -7,12 +9,30 @@ namespace Project.Infrastructure.Repositories
     {
         public IEnumerable<ICustomer> GetAllCustomers()
         {
-            throw new System.NotImplementedException();
+            using (var context = new EntityContainer())
+            {
+                return Enumerable.Cast<ICustomer>(context.pCustomers.Select(customer => new Customer
+                {
+                    Id = customer.Id,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                })).ToList();
+            }
         }
 
-        public void AddNewCustomer(string firstname, string lastname, string email)
+        public void AddNewCustomer(ICustomer customer)
         {
-            throw new System.NotImplementedException();
+            using (var context = new EntityContainer())
+            {
+                var pCustomer = new pCustomer()
+                {
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email
+                };
+                context.pCustomers.Add(pCustomer);
+                context.SaveChanges();
+            }
         }
 
         public void RemoveCustomer(int id)

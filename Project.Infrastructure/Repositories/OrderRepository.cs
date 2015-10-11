@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Project.Domain.Repositories;
+using Project.Infrastructure.Repositories.Entities;
 
 namespace Project.Infrastructure.Repositories
 {
@@ -7,12 +9,35 @@ namespace Project.Infrastructure.Repositories
     {
         public IEnumerable<IOrder> GetAllOrders()
         {
-            throw new System.NotImplementedException();
+            using (var context = new EntityContainer())
+            {
+                return Enumerable.Cast<IOrder>(context.pOrdersViews.Select(order => new Order()
+                {
+                    Id = order.Id,
+                    CustomerId = order.CustomerId ?? 0,
+                    Email = order.Email,
+                    ProductId = order.ProductId ?? 0,
+                    Code = order.Code,
+                    Value = (float) (order.Value ?? 0),
+                    Quantity = order.Quantity ?? 0,
+                    Total = (float) (order.Total ?? 0)
+                })).ToList();
+            }
         }
 
-        public void AddNewOrder(int customerId, int productId, int quantity)
+        public void AddNewOrder(IOrder order)
         {
-            throw new System.NotImplementedException();
+            using (var context = new EntityContainer())
+            {
+                var pOrder = new pOrder()
+                {
+                    CustomerId = order.CustomerId,
+                    ProductId = order.ProductId,
+                    Quantity = order.Quantity
+                };
+                context.pOrders.Add(pOrder);
+                context.SaveChanges();
+            }
         }
 
         public void RemoveOrder(int id)

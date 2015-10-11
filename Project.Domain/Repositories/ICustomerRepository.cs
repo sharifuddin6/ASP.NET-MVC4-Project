@@ -6,7 +6,7 @@ namespace Project.Domain.Repositories
     {
         IEnumerable<ICustomer> GetAllCustomers();
 
-        void AddNewCustomer(string firstname, string lastname, string email);
+        void AddNewCustomer(ICustomer customer);
 
         void RemoveCustomer(int id);
     }

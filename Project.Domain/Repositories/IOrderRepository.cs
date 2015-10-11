@@ -6,7 +6,7 @@ namespace Project.Domain.Repositories
     {
         IEnumerable<IOrder> GetAllOrders();
 
-        void AddNewOrder(int customerId, int productId, int quantity);
+        void AddNewOrder(IOrder order);
 
         void RemoveOrder(int id);
     }

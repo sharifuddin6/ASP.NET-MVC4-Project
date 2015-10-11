@@ -117,6 +117,8 @@
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\Customer.cs" />
+    <Compile Include="Repositories\Order.cs" />
     <Compile Include="Repositories\Product.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
   </ItemGroup>
