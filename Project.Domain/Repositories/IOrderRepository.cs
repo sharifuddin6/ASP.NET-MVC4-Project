@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Project.Domain.Model;
 
 namespace Project.Domain.Repositories
 {

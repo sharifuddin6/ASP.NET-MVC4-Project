@@ -9,13 +9,14 @@
 
 <br />
 
-@{
-    Html.RenderPartial("_ListOrder");
-}
+<div class="col-md-8">
+    @{
+        Html.RenderPartial("_ListOrder");
+    }
+ </div>
 
-<br />
-<br />
-
-@{
-    Html.RenderPartial("_AddOrder", Model.Order);
-}
+<div class="col-md-4">
+    @{
+        Html.RenderPartial("_AddOrder", Model.Order);
+    }
+</div>

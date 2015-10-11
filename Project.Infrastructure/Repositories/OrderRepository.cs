@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Project.Domain.Model;
 using Project.Domain.Repositories;
+using Project.Infrastructure.Model;
 using Project.Infrastructure.Repositories.Entities;
 
 namespace Project.Infrastructure.Repositories

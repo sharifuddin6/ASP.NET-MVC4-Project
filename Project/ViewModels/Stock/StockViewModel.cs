@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Project.Domain.Model;
 using Project.Domain.Repositories;
 
 namespace Project.ViewModels.Stock

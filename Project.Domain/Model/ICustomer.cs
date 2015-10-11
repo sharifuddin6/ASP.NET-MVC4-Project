@@ -1,4 +1,4 @@
-﻿namespace Project.Domain.Repositories
+﻿namespace Project.Domain.Model
 {
     public interface ICustomer
     {

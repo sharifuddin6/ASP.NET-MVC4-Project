@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Project.Domain.Repositories;
+using Project.Infrastructure.Model;
 using Project.Infrastructure.Repositories;
 using Project.ViewModels.Customer;
 

@@ -9,13 +9,13 @@
 
 <br/>
 
-@{
-    Html.RenderPartial("_ListProduct");
-}
-
-<br/>
-<br/>
-
-@{
-    Html.RenderPartial("_AddProduct", Model.Product);
-}
+<div class="col-md-8">
+    @{
+        Html.RenderPartial("_ListProduct");
+    }
+</div>
+<div class="col-md-4">
+    @{
+        Html.RenderPartial("_AddProduct", Model.Product);
+    }
+</div>

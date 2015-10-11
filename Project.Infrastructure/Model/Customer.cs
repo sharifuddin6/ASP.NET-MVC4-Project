@@ -1,6 +1,7 @@
-﻿using Project.Domain.Repositories;
+﻿using Project.Domain.Model;
+using Project.Domain.Repositories;
 
-namespace Project.Infrastructure.Repositories
+namespace Project.Infrastructure.Model
 {
     public class Customer : ICustomer
     {

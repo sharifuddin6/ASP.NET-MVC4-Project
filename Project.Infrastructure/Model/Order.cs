@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using Project.Domain.Model;
 using Project.Domain.Repositories;
 
-namespace Project.Infrastructure.Repositories
+namespace Project.Infrastructure.Model
 {
     public class Order : IOrder
     {

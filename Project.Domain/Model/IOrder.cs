@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace Project.Domain.Repositories
+namespace Project.Domain.Model
 {
     public interface IOrder
     {
