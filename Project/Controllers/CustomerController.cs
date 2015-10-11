@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Project.Domain.Repositories;
 using Project.Infrastructure.Model;
-using Project.Infrastructure.Repositories;
 using Project.ViewModels.Customer;
 
 namespace Project.Controllers
@@ -12,7 +11,7 @@ namespace Project.Controllers
 
         public CustomerController(ICustomerRepository customerRepository)
         {
-            this._customerRepository = customerRepository;
+            _customerRepository = customerRepository;
         }
 
         [HttpGet]

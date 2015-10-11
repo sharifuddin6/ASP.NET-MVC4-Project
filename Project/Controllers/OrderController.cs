@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web.Mvc;
 using Project.Domain.Repositories;
 using Project.Infrastructure.Model;
-using Project.Infrastructure.Repositories;
 using Project.ViewModels.Order;
 
 namespace Project.Controllers
@@ -18,9 +17,9 @@ namespace Project.Controllers
                                ICustomerRepository customerRepository, 
                                IProductRepository productRepository)
         {
-            this._orderRepository = orderRepository;
-            this._customerRepository = customerRepository;
-            this._productRepository = productRepository;
+            _orderRepository = orderRepository;
+            _customerRepository = customerRepository;
+            _productRepository = productRepository;
         }
 
         [HttpGet]
