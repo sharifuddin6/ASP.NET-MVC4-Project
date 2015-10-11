@@ -179,7 +179,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FindController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,7 +188,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\Find\ListItemViewModel.cs" />
+    <Compile Include="ViewModels\Stock\StockViewModel.cs" />
     <Compile Include="ViewModels\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
@@ -247,9 +247,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Find\Find.cshtml" />
-    <Content Include="Views\Find\_List.cshtml" />
-    <Content Include="Views\Find\_AddEntry.cshtml" />
+    <Content Include="Views\Stock\Stock.cshtml" />
+    <Content Include="Views\Stock\_ListProduct.cshtml" />
+    <Content Include="Views\Stock\_AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

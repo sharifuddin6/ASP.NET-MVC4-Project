@@ -25,6 +25,9 @@ namespace Project.Infrastructure.Repositories.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Lego> Legoes { get; set; }
+        public virtual DbSet<pCustomer> pCustomers { get; set; }
+        public virtual DbSet<pOrder> pOrders { get; set; }
+        public virtual DbSet<pProduct> pProducts { get; set; }
+        public virtual DbSet<pOrdersView> pOrdersViews { get; set; }
     }
 }

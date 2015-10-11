@@ -5,32 +5,115 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="EntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Lego">
+        <EntityType Name="pCustomers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Code" Type="nchar" MaxLength="10" />
-          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="FirstName" Type="text" />
+          <Property Name="LastName" Type="text" />
+          <Property Name="Email" Type="text" />
+        </EntityType>
+        <EntityType Name="pOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="pProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Code" Type="text" />
+          <Property Name="Value" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pOrdersView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Email" Type="text" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Code" Type="text" />
+          <Property Name="Value" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Total" Type="float" />
         </EntityType>
         <EntityContainer Name="EntityModelStoreContainer">
-          <EntitySet Name="Lego" EntityType="Self.Lego" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pCustomers" EntityType="Self.pCustomers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pOrders" EntityType="Self.pOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pProducts" EntityType="Self.pProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pOrdersView" EntityType="Self.pOrdersView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [pOrdersView].[Id] AS [Id], 
+    [pOrdersView].[CustomerId] AS [CustomerId], 
+    [pOrdersView].[Email] AS [Email], 
+    [pOrdersView].[ProductId] AS [ProductId], 
+    [pOrdersView].[Code] AS [Code], 
+    [pOrdersView].[Value] AS [Value], 
+    [pOrdersView].[Quantity] AS [Quantity], 
+    [pOrdersView].[Total] AS [Total]
+    FROM [dbo].[pOrdersView] AS [pOrdersView]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Lego">
+        <EntityType Name="pCustomer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="pProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Double" />
+        </EntityType>
+        <EntityType Name="pOrdersView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Total" Type="Double" />
         </EntityType>
         <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Legoes" EntityType="Self.Lego" />
+          <EntitySet Name="pCustomers" EntityType="Self.pCustomer" />
+          <EntitySet Name="pOrders" EntityType="Self.pOrder" />
+          <EntitySet Name="pProducts" EntityType="Self.pProduct" />
+          <EntitySet Name="pOrdersViews" EntityType="Self.pOrdersView" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -38,12 +121,47 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="EntityContainer">
-          <EntitySetMapping Name="Legoes">
-            <EntityTypeMapping TypeName="EntityModel.Lego">
-              <MappingFragment StoreEntitySet="Lego">
+          <EntitySetMapping Name="pCustomers">
+            <EntityTypeMapping TypeName="EntityModel.pCustomer">
+              <MappingFragment StoreEntitySet="pCustomers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pOrders">
+            <EntityTypeMapping TypeName="EntityModel.pOrder">
+              <MappingFragment StoreEntitySet="pOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pProducts">
+            <EntityTypeMapping TypeName="EntityModel.pProduct">
+              <MappingFragment StoreEntitySet="pProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pOrdersViews">
+            <EntityTypeMapping TypeName="EntityModel.pOrdersView">
+              <MappingFragment StoreEntitySet="pOrdersView">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

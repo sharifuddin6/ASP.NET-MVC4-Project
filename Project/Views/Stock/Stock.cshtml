@@ -1,0 +1,21 @@
+﻿@model Project.ViewModels.Stock.StockViewModel
+@{
+    ViewBag.Title = "Stock";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>All available products.</p>
+
+<br/>
+
+@{
+    Html.RenderPartial("_ListProduct");
+}
+
+<br/>
+<br/>
+
+@{
+    Html.RenderPartial("_AddProduct", Model.Product);
+}
