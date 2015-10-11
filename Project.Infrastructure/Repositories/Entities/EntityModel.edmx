@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="pCustomers">
           <Key>
             <PropertyRef Name="Id" />
@@ -42,6 +42,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
           <Property Name="CustomerId" Type="int" />
           <Property Name="Email" Type="text" />
           <Property Name="ProductId" Type="int" />
+          <Property Name="Name" Type="text" />
           <Property Name="Code" Type="text" />
           <Property Name="Value" Type="float" />
           <Property Name="Quantity" Type="int" />
@@ -57,6 +58,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
     [pOrdersView].[CustomerId] AS [CustomerId], 
     [pOrdersView].[Email] AS [Email], 
     [pOrdersView].[ProductId] AS [ProductId], 
+    [pOrdersView].[Name] AS [Name], 
     [pOrdersView].[Code] AS [Code], 
     [pOrdersView].[Value] AS [Value], 
     [pOrdersView].[Quantity] AS [Quantity], 
@@ -64,8 +66,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
     FROM [dbo].[pOrdersView] AS [pOrdersView]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -108,6 +109,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
           <Property Name="Value" Type="Double" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Total" Type="Double" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="pCustomers" EntityType="Self.pCustomer" />
@@ -154,6 +156,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
           <EntitySetMapping Name="pOrdersViews">
             <EntityTypeMapping TypeName="EntityModel.pOrdersView">
               <MappingFragment StoreEntitySet="pOrdersView">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

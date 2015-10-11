@@ -1,4 +1,4 @@
-﻿
+﻿@model Project.ViewModels.Customer.CustomerViewModel
 @{
     ViewBag.Title = "Customer";
 }
@@ -7,5 +7,15 @@
 
 <p>All customers.</p>
 
-<br/>
+<br />
 
+@{
+    Html.RenderPartial("_ListCustomer");
+}
+
+<br />
+<br />
+
+@{
+    Html.RenderPartial("_AddCustomer", Model.Customer);
+}

@@ -16,6 +16,7 @@ namespace Project.Infrastructure.Repositories
                     Id = order.Id,
                     CustomerId = order.CustomerId ?? 0,
                     Email = order.Email,
+                    Name = order.Name,
                     ProductId = order.ProductId ?? 0,
                     Code = order.Code,
                     Value = (float) (order.Value ?? 0),

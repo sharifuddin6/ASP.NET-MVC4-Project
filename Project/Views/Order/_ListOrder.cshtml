@@ -1,0 +1,36 @@
+﻿@model Project.ViewModels.Order.OrderViewModel
+@{
+    ViewBag.Title = "List model";
+}
+
+<legend>All orders</legend>
+<table class="table all-orders" style="width:400px">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Customer Id</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Product Id</th>
+            <th>Code</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CustomerId</td>
+                <td>@item.Email</td>
+                <td>@item.Name</td>
+                <td>@item.ProductId</td>
+                <td>@item.Code</td>
+                <td>@item.Quantity</td>
+                <td>£@item.Value</td>
+                <td>£@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

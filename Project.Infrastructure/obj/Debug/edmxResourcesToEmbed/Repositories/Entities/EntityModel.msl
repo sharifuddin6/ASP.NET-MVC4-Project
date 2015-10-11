@@ -34,6 +34,7 @@
     <EntitySetMapping Name="pOrdersViews">
       <EntityTypeMapping TypeName="EntityModel.pOrdersView">
         <MappingFragment StoreEntitySet="pOrdersView">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="Email" ColumnName="Email" />

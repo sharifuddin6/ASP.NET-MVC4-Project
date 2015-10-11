@@ -39,6 +39,7 @@
     <Property Name="Value" Type="Double" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="Total" Type="Double" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="pCustomers" EntityType="Self.pCustomer" />

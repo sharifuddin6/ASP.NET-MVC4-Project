@@ -37,6 +37,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
     <Property Name="CustomerId" Type="int" />
     <Property Name="Email" Type="text" />
     <Property Name="ProductId" Type="int" />
+    <Property Name="Name" Type="text" />
     <Property Name="Code" Type="text" />
     <Property Name="Value" Type="float" />
     <Property Name="Quantity" Type="int" />
@@ -52,6 +53,7 @@ warning 6002: The table/view 'Project.dbo.pOrdersView' does not have a primary k
     [pOrdersView].[CustomerId] AS [CustomerId], 
     [pOrdersView].[Email] AS [Email], 
     [pOrdersView].[ProductId] AS [ProductId], 
+    [pOrdersView].[Name] AS [Name], 
     [pOrdersView].[Code] AS [Code], 
     [pOrdersView].[Value] AS [Value], 
     [pOrdersView].[Quantity] AS [Quantity], 

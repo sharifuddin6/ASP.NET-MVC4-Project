@@ -1,31 +1,31 @@
-﻿@model Project.Infrastructure.Repositories.Product
+﻿@model Project.Infrastructure.Repositories.Customer
 
 @using (Html.BeginForm())
 {
     <fieldset>
         <legend>Add new product</legend>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.FirstName)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Name)
+            @Html.TextBoxFor(model => model.FirstName)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Code)
+            @Html.LabelFor(model => model.LastName)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Code)
+            @Html.TextBoxFor(model => model.LastName)
         </div>
 
         <div class="editor-label">
-            @Html.Label("Price")
+            @Html.LabelFor(model => model.Email)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Value)
+            @Html.TextBoxFor(model => model.Email)
         </div>
 
         <br/>
-        <input type="submit" value="Add Product" />
+        <input type="submit" value="Add Customer" />
     </fieldset>
 }

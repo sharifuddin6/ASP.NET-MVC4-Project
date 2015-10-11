@@ -1,4 +1,4 @@
-﻿
+﻿@model Project.ViewModels.Order.OrderViewModel
 @{
     ViewBag.Title = "Order";
 }
@@ -7,5 +7,15 @@
 
 <p>All orders for customers.</p>
 
-<br/>
+<br />
 
+@{
+    Html.RenderPartial("_ListOrder");
+}
+
+<br />
+<br />
+
+@{
+    Html.RenderPartial("_AddOrder", Model.Order);
+}

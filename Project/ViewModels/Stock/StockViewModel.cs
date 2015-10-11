@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Project.Domain.Repositories;
-using Project.Infrastructure.Repositories;
 
 namespace Project.ViewModels.Stock
 {
@@ -8,6 +7,6 @@ namespace Project.ViewModels.Stock
     {
         public IEnumerable<IProduct> Products { get; set; }
 
-        public Product Product { get; set; }
+        public IProduct Product { get; set; }
     }
 }

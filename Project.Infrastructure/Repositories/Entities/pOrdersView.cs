@@ -22,5 +22,6 @@ namespace Project.Infrastructure.Repositories.Entities
         public Nullable<double> Value { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<double> Total { get; set; }
+        public string Name { get; set; }
     }
 }
