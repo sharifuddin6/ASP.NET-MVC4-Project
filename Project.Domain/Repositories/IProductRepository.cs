@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using Project.Domain.Model;
 
 namespace Project.Domain.Repositories
 {
     public interface IProductRepository
     {
-        IEnumerable<IProduct> GetAllProducts();
+        IEnumerable<Product.Product> GetAllProducts();
 
-        void AddNewProduct(IProduct product);
+        void AddNewProduct(Product.Product product);
 
         void RemoveProduct(int id);
     }

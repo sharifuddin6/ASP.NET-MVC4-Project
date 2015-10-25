@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using Project.Domain.Model;
 
 namespace Project.ViewModels.Order
 {
     public class OrderViewModel
     {
-        public IEnumerable<IOrder> Orders { get; set; }
+        public IEnumerable<Domain.Order.Order> Orders { get; set; }
 
-        public IOrder Order { get; set; }
+        public Domain.Order.Order Order { get; set; }
 
-        public IEnumerable<ICustomer>  Customers { get; set; }
+        public IEnumerable<Domain.Customer.Customer>  Customers { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Project.Domain.Order;
 using Project.Domain.Repositories;
-using Project.Infrastructure.Model;
 using Project.ViewModels.Order;
 
 namespace Project.Controllers

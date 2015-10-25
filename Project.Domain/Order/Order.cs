@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Project.Domain.Model;
-using Project.Domain.Repositories;
 
-namespace Project.Infrastructure.Model
+namespace Project.Domain.Order
 {
-    public class Order : IOrder
+    public class Order
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }

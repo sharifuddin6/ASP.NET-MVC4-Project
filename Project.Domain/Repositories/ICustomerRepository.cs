@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using Project.Domain.Model;
 
 namespace Project.Domain.Repositories
 {
     public interface ICustomerRepository
     {
-        IEnumerable<ICustomer> GetAllCustomers();
+        IEnumerable<Customer.Customer> GetAllCustomers();
 
-        void AddNewCustomer(ICustomer customer);
+        void AddNewCustomer(Customer.Customer customer);
 
         void RemoveCustomer(int id);
     }

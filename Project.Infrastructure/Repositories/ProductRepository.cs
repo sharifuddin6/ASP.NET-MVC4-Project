@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Project.Domain.Model;
+using Project.Domain.Product;
 using Project.Domain.Repositories;
-using Project.Infrastructure.Model;
 using Project.Infrastructure.Repositories.Entities;
 
 namespace Project.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public IEnumerable<IProduct> GetAllProducts()
+        public IEnumerable<Product> GetAllProducts()
         {
             using (var context = new EntityContainer())
             {
-                return Enumerable.Cast<IProduct>(context.pProducts.Select(product => new Product()
+                return Enumerable.Cast<Product>(context.pProducts.Select(product => new Product()
                 {
                     Id = product.Id,
                     Name = product.Name,
@@ -23,7 +22,7 @@ namespace Project.Infrastructure.Repositories
             }
         }
 
-        public void AddNewProduct(IProduct product)
+        public void AddNewProduct(Product product)
         {
             using (var context = new EntityContainer())
             {

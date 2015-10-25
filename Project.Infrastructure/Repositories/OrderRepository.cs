@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Project.Domain.Model;
+using Project.Domain.Order;
 using Project.Domain.Repositories;
-using Project.Infrastructure.Model;
 using Project.Infrastructure.Repositories.Entities;
 
 namespace Project.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        public IEnumerable<IOrder> GetAllOrders()
+        public IEnumerable<Order> GetAllOrders()
         {
             using (var context = new EntityContainer())
             {
-                return Enumerable.Cast<IOrder>(context.pOrdersViews.Select(order => new Order()
+                return Enumerable.Cast<Order>(context.pOrdersViews.Select(order => new Order()
                 {
                     Id = order.Id,
                     CustomerId = order.CustomerId ?? 0,
@@ -28,7 +27,7 @@ namespace Project.Infrastructure.Repositories
             }
         }
 
-        public void AddNewOrder(IOrder order)
+        public void AddNewOrder(Order order)
         {
             using (var context = new EntityContainer())
             {

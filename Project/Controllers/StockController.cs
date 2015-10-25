@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
+using Project.Domain.Product;
 using Project.Domain.Repositories;
-using Project.Infrastructure.Model;
 using Project.ViewModels.Stock;
 
 namespace Project.Controllers

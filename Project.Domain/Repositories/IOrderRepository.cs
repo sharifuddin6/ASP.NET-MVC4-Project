@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using Project.Domain.Model;
 
 namespace Project.Domain.Repositories
 {
     public interface IOrderRepository
     {
-        IEnumerable<IOrder> GetAllOrders();
+        IEnumerable<Order.Order> GetAllOrders();
 
-        void AddNewOrder(IOrder order);
+        void AddNewOrder(Order.Order order);
 
         void RemoveOrder(int id);
     }

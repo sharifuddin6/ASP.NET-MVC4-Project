@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Project.Domain.Model;
+using Project.Domain.Product;
 
 namespace Project.ViewModels.Stock
 {
     public class StockViewModel
     {
-        public IEnumerable<IProduct> Products { get; set; }
+        public IEnumerable<Product> Products { get; set; }
 
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
     }
 }

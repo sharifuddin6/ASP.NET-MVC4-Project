@@ -1,9 +1,6 @@
-﻿using Project.Domain.Model;
-using Project.Domain.Repositories;
-
-namespace Project.Infrastructure.Model
+﻿namespace Project.Domain.Customer
 {
-    public class Customer : ICustomer
+    public class Customer
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

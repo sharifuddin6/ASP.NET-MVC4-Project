@@ -1,9 +1,6 @@
-﻿using Project.Domain.Model;
-using Project.Domain.Repositories;
-
-namespace Project.Infrastructure.Model
+﻿namespace Project.Domain.Product
 {
-    public class Product : IProduct
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -87,9 +87,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ICustomer.cs" />
-    <Compile Include="Model\IOrder.cs" />
-    <Compile Include="Model\IProduct.cs" />
+    <Compile Include="Customer\Customer.cs" />
+    <Compile Include="Order\Order.cs" />
+    <Compile Include="Product\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
