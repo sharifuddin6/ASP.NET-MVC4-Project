@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Project.Domain.Product;
 using Project.Domain.Repositories;
 
@@ -10,6 +11,12 @@ namespace Project.Infrastructure.Repositories
         {
             // data could be retrieved from a db
             return MakeProducts();
+        }
+
+        public Product GetProduct(string productId)
+        {
+            var products = MakeProducts();
+            return products.Single(e => e.Id == productId);
         }
 
         private static IEnumerable<Product> MakeProducts()

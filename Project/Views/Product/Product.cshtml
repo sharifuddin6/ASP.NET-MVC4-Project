@@ -1,16 +1,28 @@
 ﻿@model Project.ViewModels.Product.ProductViewModel
-@{
-    ViewBag.Title = "Product";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>All available products.</p>
-
-<br/>
 
 <div class="col-md-8">
-    @{
-        Html.RenderPartial("_ListProduct");
-    }
+    <table class="table all-products" style="width:400px">
+        <tbody>
+            <tr>
+                <table class="product" style="width: 400px">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h2>@Model.Product.Title</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Author: @Model.Product.Author</td>
+                        </tr>
+                        <tr>
+                            <td>Product Id: @Model.Product.Id</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <td><strong>Abtract:</strong>@Html.Raw(Model.Product.Abstract)</td>
+                <td><strong>Content:</strong>@Html.Raw(Model.Product.Content)</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
