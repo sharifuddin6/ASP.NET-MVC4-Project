@@ -1,6 +1,6 @@
-﻿@model Project.ViewModels.Stock.StockViewModel
+﻿@model Project.ViewModels.Product.ProductViewModel
 @{
-    ViewBag.Title = "Stock";
+    ViewBag.Title = "Product";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
@@ -12,10 +12,5 @@
 <div class="col-md-8">
     @{
         Html.RenderPartial("_ListProduct");
-    }
-</div>
-<div class="col-md-4">
-    @{
-        Html.RenderPartial("_AddProduct", Model.Product);
     }
 </div>

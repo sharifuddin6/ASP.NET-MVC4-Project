@@ -1,0 +1,34 @@
+﻿@model Project.ViewModels.Product.ProductViewModel
+@{
+    ViewBag.Title = "List model";
+}
+
+<legend>Available products</legend>
+<table class="table all-products" style="width:400px">
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <table class="product" style="width: 400px">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h2>@item.Title</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Author: @item.Author</td>
+                        </tr>
+                        <tr>
+                            <td>Product Id: @item.Id</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <td><strong>Abtract:</strong>@Html.Raw(item.Abstract)</td>
+                <td><strong>Content:</strong>@Html.Raw(item.Content)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
