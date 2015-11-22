@@ -1,5 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using System.Web.WebPages;
 using Project.Domain.Repositories;
 using Project.ViewModels.Product;
 
@@ -17,7 +17,12 @@ namespace Project.Controllers
         [HttpGet]
         public ActionResult Product(string productId)
         {
-            return View(new ProductViewModel()
+            if (productId.IsEmpty())
+            {
+                return View(new ProductViewModel());
+            }
+
+            return View(new ProductViewModel
             {
                 Product = _productRepository.GetProduct(productId)
             });

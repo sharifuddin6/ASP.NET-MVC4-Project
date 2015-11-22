@@ -1,28 +1,24 @@
 ﻿@model Project.ViewModels.Product.ProductViewModel
 
-<div class="col-md-8">
-    <table class="table all-products" style="width:400px">
-        <tbody>
-            <tr>
-                <table class="product" style="width: 400px">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h2>@Model.Product.Title</h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Author: @Model.Product.Author</td>
-                        </tr>
-                        <tr>
-                            <td>Product Id: @Model.Product.Id</td>
-                        </tr>
-                    </tbody>
-                </table>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    var fragment = window.location.hash;
+    $(document).ready(function() {
+        if (fragment === "#content-1") {
+            $(".main-content").hide();
+        } else if (fragment === "#content-2") {
+            $(".abstract").hide();
+        }
+    });
+</script>
 
-                <td><strong>Abtract:</strong>@Html.Raw(Model.Product.Abstract)</td>
-                <td><strong>Content:</strong>@Html.Raw(Model.Product.Content)</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+@{
+    if (Model.Product != null)
+    {
+        Html.RenderPartial("_product", Model.Product);
+    }
+    else
+    {
+        Html.RenderPartial("_noproduct");
+    }
+}
