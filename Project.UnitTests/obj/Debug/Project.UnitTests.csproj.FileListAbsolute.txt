@@ -1,6 +1,0 @@
-C:\Workspace\Project\Project.UnitTests\bin\Debug\Project.UnitTests.dll
-C:\Workspace\Project\Project.UnitTests\bin\Debug\Project.UnitTests.pdb
-C:\Workspace\Project\Project.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Workspace\Project\Project.UnitTests\obj\Debug\Project.UnitTests.csprojResolveAssemblyReference.cache
-C:\Workspace\Project\Project.UnitTests\obj\Debug\Project.UnitTests.dll
-C:\Workspace\Project\Project.UnitTests\obj\Debug\Project.UnitTests.pdb
