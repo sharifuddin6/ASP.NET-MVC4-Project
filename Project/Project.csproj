@@ -252,10 +252,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Find\Find.cshtml" />
-    <Content Include="Views\Find\_ListProduct.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\_product.cshtml" />
     <Content Include="Views\Product\_noproduct.cshtml" />
+    <Content Include="Views\Find\_listProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

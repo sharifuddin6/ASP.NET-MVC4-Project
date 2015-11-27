@@ -1,0 +1,16 @@
+﻿@model Project.ViewModels.Find.FindViewModel
+@{
+    ViewBag.Title = "List model";
+}
+
+<legend>Available products</legend>
+<div class="all-products" style="width:400px">
+    @foreach (var item in Model.Products)
+    {
+        <div class="product" style="width: 400px">
+            @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
+            @Html.ActionLink( "Abstract", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
+            @Html.ActionLink( "Content", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
+        </div>
+    }
+</div>
