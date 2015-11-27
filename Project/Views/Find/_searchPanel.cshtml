@@ -1,0 +1,16 @@
+﻿@model Project.Domain.Find.Search
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Search products</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Query)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Query)
+        </div>
+        <br/>
+        <input type="submit" value="Find" />
+    </fieldset>
+}

@@ -1,0 +1,21 @@
+/* line 1, ../sass/modules/_layout.scss */
+.column {
+  display: inline-block;
+  margin: 40px;
+}
+
+/* line 6, ../sass/modules/_layout.scss */
+.column-left {
+  float: left;
+}
+
+/* line 1, ../sass/partials/_find.scss */
+.product {
+  min-width: 500px;
+  padding: 40px 20px;
+}
+
+/* line 6, ../sass/partials/_find.scss */
+.product-list {
+  overflow: hidden auto;
+}

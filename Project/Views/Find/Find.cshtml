@@ -1,14 +1,14 @@
 ﻿@model Project.ViewModels.Find.FindViewModel
-@{
-    ViewBag.Title = "Find";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<br/>
-
-<div class="col-md-8">
-    @{
-        Html.RenderPartial("_listProducts", Model);
-    }
+<div class="container">
+    <div class="column-left column">
+        @{
+            Html.RenderPartial("_searchPanel", Model.Search);
+        }
+    </div>
+    <div class="column-center column">
+        @{
+            Html.RenderPartial("_listProducts", Model);
+        }
+    </div>
 </div>

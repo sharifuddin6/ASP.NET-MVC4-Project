@@ -208,6 +208,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\sass\main.scss" />
     <Content Include="Content\sass\modules\_layout.scss" />
+    <Content Include="Content\sass\partials\_find.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -259,10 +260,10 @@
     <Content Include="Views\Product\_product.cshtml" />
     <Content Include="Views\Product\_noproduct.cshtml" />
     <Content Include="Views\Find\_listProducts.cshtml" />
+    <Content Include="Views\Find\_searchPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\sass\partials\" />
     <Folder Include="Content\sass\vendor\" />
   </ItemGroup>
   <ItemGroup>

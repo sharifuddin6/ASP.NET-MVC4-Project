@@ -1,5 +1,6 @@
 ﻿using Project.Domain.Repositories;
 using System.Web.Mvc;
+using Project.Domain.Find;
 using Project.ViewModels.Find;
 
 namespace Project.Controllers
@@ -17,7 +18,8 @@ namespace Project.Controllers
         {
             return View("Find", new FindViewModel
             {
-                Products = _productRepository.GetAllProducts()
+                Products = _productRepository.GetAllProducts(),
+                Search = new Search()
             });
         }
     }
