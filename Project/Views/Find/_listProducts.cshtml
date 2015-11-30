@@ -3,7 +3,7 @@
     ViewBag.Title = "List model";
 }
 
-<legend>Search results</legend>
+<legend>Search results found @Model.Products.Count() items</legend>
 <div class="product-list" style="width:400px">
     @foreach (var item in Model.Products)
     {

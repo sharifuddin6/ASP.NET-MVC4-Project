@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Project.Domain.Repositories
 {
@@ -7,6 +6,6 @@ namespace Project.Domain.Repositories
     {
         IEnumerable<Product.Product> GetAllProducts();
 
-        Product.Product GetProduct(String productId);
+        Product.Product GetProduct(int productId);
     }
 }
