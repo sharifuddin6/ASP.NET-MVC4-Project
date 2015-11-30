@@ -9,6 +9,6 @@ namespace Project.Domain.Repositories
 
         IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod selection);
 
-        Product.Product GetProduct(int productId);
+        Product.Product GetProduct(string productId);
     }
 }

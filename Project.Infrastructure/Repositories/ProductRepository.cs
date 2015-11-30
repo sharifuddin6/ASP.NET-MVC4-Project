@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Project.Domain.Find;
 using Project.Domain.Product;
@@ -34,10 +35,10 @@ namespace Project.Infrastructure.Repositories
             return GetAllProducts();
         }
 
-        public Product GetProduct(int productId)
+        public Product GetProduct(string productId)
         {
             var products = GetAllProducts();
-            return products.Single(e => e.Id == productId);
+            return products.Single(e => e.Id == Convert.ToInt32(productId));
         }
 
         private IEnumerable<Product> BruteForce(string query)

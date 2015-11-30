@@ -14,8 +14,13 @@ namespace Project.Controllers
         }
         
         [HttpGet]
-        public ActionResult Product(int productId)
+        public ActionResult Product(string productId)
         {
+            if (productId == null)
+            {
+                return View("_noproduct");
+            }
+
             return View(new ProductViewModel
             {
                 Product = _productRepository.GetProduct(productId)

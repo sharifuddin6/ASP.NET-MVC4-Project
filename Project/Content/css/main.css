@@ -13,9 +13,10 @@
 .product {
   min-width: 500px;
   padding: 40px 20px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-/* line 6, ../sass/partials/_find.scss */
+/* line 7, ../sass/partials/_find.scss */
 .product-list {
   overflow: hidden auto;
 }
