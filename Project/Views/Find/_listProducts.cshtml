@@ -3,17 +3,19 @@
     ViewBag.Title = "List model";
 }
 
-<legend>Search results found @Model.Products.Count() items</legend>
-<div class="product-list" style="width:400px">
-    @foreach (var item in Model.Products)
-    {
-        <div class="product">
-            @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
-            <br/>
-            <span>
-                @Html.ActionLink("Abstract", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
-                @Html.ActionLink("Content", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
-            </span>
-        </div>
-    }
+<div class="search-result">
+    <span>Search results found @Model.Products.Count() items</span>
+    <div class="product-list" style="width:400px">
+        @foreach (var item in Model.Products)
+        {
+            <div class="product">
+                @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
+                <br />
+                <span>
+                    @Html.ActionLink("Abstract", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
+                    @Html.ActionLink("Content", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
+                </span>
+            </div>
+        }
+    </div>
 </div>
