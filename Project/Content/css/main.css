@@ -20,3 +20,8 @@
 .product-list {
   overflow: hidden auto;
 }
+
+/* line 11, ../sass/partials/_find.scss */
+.search-field {
+  padding: 0 6px;
+}

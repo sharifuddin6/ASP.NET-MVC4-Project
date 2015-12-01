@@ -22,11 +22,9 @@
 {
     <fieldset>
         <legend>Search products</legend>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Query)
-        </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Query)
+            @Html.TextBoxFor(model => model.Query, new { @class = "search-field" })
+            <input type="submit" class="search" />
         </div>
         <br/>
         @foreach (var method in Enum.GetValues(typeof(Search.SearchMethod)))
@@ -36,7 +34,5 @@
                 @Html.Label(method.ToString())
             </div>
         }
-        <br/>
-        <input type="submit" class="search" />
     </fieldset>
 }
