@@ -28,9 +28,13 @@ namespace Project.Infrastructure.Repositories
 
         public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod selection)
         {
-            if (selection == Search.SearchMethod.BruteForce)
+            if (selection == Search.SearchMethod.BruteForceTitle)
             {
-                return BruteForce(query);
+                return BruteForceTitle(query);
+            }
+            if (selection == Search.SearchMethod.BruteForceAll)
+            {
+                return BruteForceAll(query);
             }
             return GetAllProducts();
         }
@@ -41,11 +45,31 @@ namespace Project.Infrastructure.Repositories
             return products.Single(e => e.Id == Convert.ToInt32(productId));
         }
 
-        private IEnumerable<Product> BruteForce(string query)
+        private IEnumerable<Product> BruteForceTitle(string query)
         {
             using (var context = new EntityContainer())
             {
                 return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query))
+                                                                 .Select(product => new Product()
+                {
+                    Id = product.ProductId,
+                    Title = product.Title,
+                    Author = product.Author,
+                    Abstract = product.Abstract,
+                    Content = product.Content,
+                    Thumbnail = product.Thumbnail
+                })).ToList();
+            }
+        }
+
+        private IEnumerable<Product> BruteForceAll(string query)
+        {
+            using (var context = new EntityContainer())
+            {
+                return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) ||
+                                                                                   product.Author.Contains(query) ||
+                                                                                   product.Abstract.Contains(query) ||
+                                                                                   product.Content.Contains(query))
                                                                  .Select(product => new Product()
                 {
                     Id = product.ProductId,

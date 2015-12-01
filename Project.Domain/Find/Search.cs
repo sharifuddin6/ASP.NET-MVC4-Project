@@ -8,8 +8,8 @@ namespace Project.Domain.Find
 
         public enum SearchMethod
         {
-            BruteForce = 0,
-            Example1 = 1,
+            BruteForceTitle = 0,
+            BruteForceAll = 1,
             Example2 = 2,
             Example3 = 3
         }
