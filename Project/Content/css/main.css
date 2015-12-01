@@ -1,0 +1,27 @@
+/* line 1, ../sass/modules/_layout.scss */
+.column {
+  display: inline-block;
+  margin: 40px;
+}
+
+/* line 6, ../sass/modules/_layout.scss */
+.column-left {
+  float: left;
+}
+
+/* line 1, ../sass/partials/_find.scss */
+.product {
+  min-width: 500px;
+  padding: 40px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 7, ../sass/partials/_find.scss */
+.product-list {
+  overflow: hidden auto;
+}
+
+/* line 11, ../sass/partials/_find.scss */
+.search-field {
+  padding: 0 6px;
+}

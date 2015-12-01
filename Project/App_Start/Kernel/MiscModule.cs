@@ -11,14 +11,6 @@ namespace Project.Kernel
             builder.RegisterType<ProductRepository>()
                    .As<IProductRepository>()
                    .InstancePerRequest();
-
-            builder.RegisterType<CustomerRepository>()
-                   .As<ICustomerRepository>()
-                   .InstancePerRequest();
-
-            builder.RegisterType<OrderRepository>()
-                   .As<IOrderRepository>()
-                   .InstancePerRequest();
         }
     }
 }

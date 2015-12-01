@@ -1,0 +1,38 @@
+﻿@using Project.Domain.Find
+@model Search
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("form").submit(function() {
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    $(".search-result").html(result);
+                }
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Search products</legend>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Query, new { @class = "search-field" })
+            <input type="submit" class="search" />
+        </div>
+        <br/>
+        @foreach (var method in Enum.GetValues(typeof(Search.SearchMethod)))
+        {
+            <div class="editor-radiobutton">
+                @Html.RadioButtonFor(model => model.Selection, method)
+                @Html.Label(method.ToString())
+            </div>
+        }
+    </fieldset>
+}

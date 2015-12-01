@@ -14,9 +14,11 @@ namespace Project.Infrastructure.Repositories.Entities
     
     public partial class pProduct
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public Nullable<double> Value { get; set; }
+        public int ProductId { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Abstract { get; set; }
+        public string Content { get; set; }
+        public string Thumbnail { get; set; }
     }
 }

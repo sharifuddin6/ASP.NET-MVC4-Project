@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Project.Domain.Find;
 using Project.Domain.Product;
 using Project.Domain.Repositories;
 using Project.Infrastructure.Repositories.Entities;
@@ -14,32 +16,70 @@ namespace Project.Infrastructure.Repositories
             {
                 return Enumerable.Cast<Product>(context.pProducts.Select(product => new Product()
                 {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Code = product.Code,
-                    Value = (float) (product.Value ?? 0)
+                    Id = product.ProductId,
+                    Title = product.Title,
+                    Author = product.Author,
+                    Abstract = product.Abstract,
+                    Content = product.Content,
+                    Thumbnail = product.Thumbnail
                 })).ToList();
             }
         }
 
-        public void AddNewProduct(Product product)
+        public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod selection)
+        {
+            if (selection == Search.SearchMethod.BruteForceTitle)
+            {
+                return BruteForceTitle(query);
+            }
+            if (selection == Search.SearchMethod.BruteForceAll)
+            {
+                return BruteForceAll(query);
+            }
+            return GetAllProducts();
+        }
+
+        public Product GetProduct(string productId)
+        {
+            var products = GetAllProducts();
+            return products.Single(e => e.Id == Convert.ToInt32(productId));
+        }
+
+        private IEnumerable<Product> BruteForceTitle(string query)
         {
             using (var context = new EntityContainer())
             {
-                var pProduct = new pProduct()
+                return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query))
+                                                                 .Select(product => new Product()
                 {
-                    Name = product.Name,
-                    Code = product.Code,
-                    Value = product.Value
-                };
-                context.pProducts.Add(pProduct);
-                context.SaveChanges();
+                    Id = product.ProductId,
+                    Title = product.Title,
+                    Author = product.Author,
+                    Abstract = product.Abstract,
+                    Content = product.Content,
+                    Thumbnail = product.Thumbnail
+                })).ToList();
             }
         }
 
-        public void RemoveProduct(int id)
+        private IEnumerable<Product> BruteForceAll(string query)
         {
-            throw new System.NotImplementedException();
+            using (var context = new EntityContainer())
+            {
+                return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) ||
+                                                                                   product.Author.Contains(query) ||
+                                                                                   product.Abstract.Contains(query) ||
+                                                                                   product.Content.Contains(query))
+                                                                 .Select(product => new Product()
+                {
+                    Id = product.ProductId,
+                    Title = product.Title,
+                    Author = product.Author,
+                    Abstract = product.Abstract,
+                    Content = product.Content,
+                    Thumbnail = product.Thumbnail
+                })).ToList();
+            }
         }
     }
 }

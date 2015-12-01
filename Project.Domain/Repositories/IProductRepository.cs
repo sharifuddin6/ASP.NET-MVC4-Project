@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Project.Domain.Find;
 
 namespace Project.Domain.Repositories
 {
@@ -6,8 +7,8 @@ namespace Project.Domain.Repositories
     {
         IEnumerable<Product.Product> GetAllProducts();
 
-        void AddNewProduct(Product.Product product);
+        IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod selection);
 
-        void RemoveProduct(int id);
+        Product.Product GetProduct(string productId);
     }
 }
