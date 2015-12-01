@@ -181,18 +181,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FindController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\Find\FindViewModel.cs" />
-    <Compile Include="ViewModels\Product\ProductViewModel.cs" />
     <Compile Include="ViewModels\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
@@ -208,7 +204,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\sass\main.scss" />
     <Content Include="Content\sass\modules\_layout.scss" />
-    <Content Include="Content\sass\partials\_find.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -255,15 +250,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Find\Find.cshtml" />
-    <Content Include="Views\Product\Product.cshtml" />
-    <Content Include="Views\Product\_product.cshtml" />
-    <Content Include="Views\Product\_noproduct.cshtml" />
-    <Content Include="Views\Find\_listProducts.cshtml" />
-    <Content Include="Views\Find\_searchPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\sass\partials\" />
     <Folder Include="Content\sass\vendor\" />
   </ItemGroup>
   <ItemGroup>
