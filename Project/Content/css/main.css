@@ -25,3 +25,8 @@
 .search-field {
   padding: 0 6px;
 }
+
+/* line 15, ../sass/partials/_find.scss */
+.sort-option {
+  float: right;
+}

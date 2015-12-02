@@ -5,7 +5,9 @@
 
 <div class="search-result">
     <span>Search results found @Model.Products.Count() items</span>
-    <div class="product-list" style="width:400px">
+    @Html.DropDownListFor(model => model.SortOption, Model.SortMenu, new { @class = "sort-option" })
+
+    <div class="product-list">
         @foreach (var item in Model.Products)
         {
             <div class="product">

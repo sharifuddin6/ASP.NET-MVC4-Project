@@ -1,4 +1,5 @@
-﻿using Project.Domain.Repositories;
+﻿using System.Collections.Generic;
+using Project.Domain.Repositories;
 using System.Web.Mvc;
 using Project.Domain.Find;
 using Project.ViewModels.Find;
@@ -17,10 +18,30 @@ namespace Project.Controllers
         [HttpGet]
         public ActionResult Find()
         {
+            var sortMenu = new List<SelectListItem>
+            {
+                new SelectListItem()
+                {
+                    Text = "Relevance",
+                    Value = "0"
+                },
+                new SelectListItem()
+                {
+                    Text = "SortExample1",
+                    Value = "1"
+                },
+                new SelectListItem()
+                {
+                    Text = "SortExample2",
+                    Value = "2"
+                }
+            };
+
             return View("Find", new FindViewModel
             {
                 Products = _productRepository.GetAllProducts(),
-                Search = new Search()
+                Search = new Search(),
+                SortMenu = sortMenu
             });
         }
 
