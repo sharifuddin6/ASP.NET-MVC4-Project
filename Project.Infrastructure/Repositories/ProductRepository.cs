@@ -58,7 +58,7 @@ namespace Project.Infrastructure.Repositories
                     Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
                 })).ToList();
 
-                UpdateProductMatchCount(query, productList);
+                UpdateProductMatchCount(query, productList, false);
 
                 return productList;
             }
@@ -73,17 +73,19 @@ namespace Project.Infrastructure.Repositories
                     Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
                 })).ToList();
 
-                UpdateProductMatchCount(query, productList);
+                UpdateProductMatchCount(query, productList, true);
 
                 return productList;
             }
         }
 
-        private static void UpdateProductMatchCount(string query, IEnumerable<Product> productList)
+        private static void UpdateProductMatchCount(string query, IEnumerable<Product> productList, bool allContent)
         {
             foreach (var product in productList)
             {
-                product.MatchCount = CountMatchedCharacters(product.Title, query);
+                var content = !allContent ? product.Title :
+                    product.Title + product.Author + product.Abstract + product.Content;
+                product.MatchCount = CountMatchedCharacters(content, query);
             }
         }
 
