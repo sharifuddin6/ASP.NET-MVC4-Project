@@ -28,15 +28,19 @@ namespace Project.Infrastructure.Repositories
 
         public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod selection)
         {
-            if (selection == Search.SearchMethod.BruteForceTitle)
+            switch (selection)
             {
-                return BruteForceTitle(query);
+                case Search.SearchMethod.BruteForceTitle:
+                    return BruteForceTitle(query);
+                case Search.SearchMethod.BruteForceAll:
+                    return BruteForceAll(query);
+                case Search.SearchMethod.Example2:
+                    return GetAllProducts();
+                case Search.SearchMethod.Example3:
+                    return GetAllProducts();
+                default:
+                    return GetAllProducts();
             }
-            if (selection == Search.SearchMethod.BruteForceAll)
-            {
-                return BruteForceAll(query);
-            }
-            return GetAllProducts();
         }
 
         public Product GetProduct(string productId)
@@ -49,16 +53,14 @@ namespace Project.Infrastructure.Repositories
         {
             using (var context = new EntityContainer())
             {
-                return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query))
-                                                                 .Select(product => new Product()
+                var productList = Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query)).Select(product => new Product()
                 {
-                    Id = product.ProductId,
-                    Title = product.Title,
-                    Author = product.Author,
-                    Abstract = product.Abstract,
-                    Content = product.Content,
-                    Thumbnail = product.Thumbnail
+                    Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
                 })).ToList();
+
+                UpdateProductMatchCount(query, productList);
+
+                return productList;
             }
         }
 
@@ -66,20 +68,37 @@ namespace Project.Infrastructure.Repositories
         {
             using (var context = new EntityContainer())
             {
-                return Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) ||
-                                                                                   product.Author.Contains(query) ||
-                                                                                   product.Abstract.Contains(query) ||
-                                                                                   product.Content.Contains(query))
-                                                                 .Select(product => new Product()
+                var productList = Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) || product.Author.Contains(query) || product.Abstract.Contains(query) || product.Content.Contains(query)).Select(product => new Product()
                 {
-                    Id = product.ProductId,
-                    Title = product.Title,
-                    Author = product.Author,
-                    Abstract = product.Abstract,
-                    Content = product.Content,
-                    Thumbnail = product.Thumbnail
+                    Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
                 })).ToList();
+
+                UpdateProductMatchCount(query, productList);
+
+                return productList;
             }
+        }
+
+        private static void UpdateProductMatchCount(string query, IEnumerable<Product> productList)
+        {
+            foreach (var product in productList)
+            {
+                product.MatchCount = CountMatchedCharacters(product.Title, query);
+            }
+        }
+
+        private static int CountMatchedCharacters(string content, string query)
+        {
+            var count = 0;
+            for (var i = 0; i <= content.Length - query.Length; i++)
+            {
+                var substring = content.Substring(i, query.Length);
+                if (string.Equals(substring, query, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }

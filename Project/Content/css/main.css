@@ -15,18 +15,28 @@
   padding: 40px 20px;
   border-bottom: 1px solid #e5e5e5;
 }
+/* line 6, ../sass/partials/_find.scss */
+.product img {
+  height: 120px;
+}
+/* line 10, ../sass/partials/_find.scss */
+.product .info {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 40px;
+}
 
-/* line 7, ../sass/partials/_find.scss */
+/* line 17, ../sass/partials/_find.scss */
 .product-list {
   overflow: hidden auto;
 }
 
-/* line 11, ../sass/partials/_find.scss */
+/* line 21, ../sass/partials/_find.scss */
 .search-field {
   padding: 0 6px;
 }
 
-/* line 15, ../sass/partials/_find.scss */
+/* line 25, ../sass/partials/_find.scss */
 .sort-option {
   float: right;
 }

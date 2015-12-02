@@ -9,5 +9,7 @@
         public string Abstract { get; set; }
         public string Content { get; set; }
         public string Thumbnail { get; set; }
+
+        public int MatchCount { get; set; }
     }
 }

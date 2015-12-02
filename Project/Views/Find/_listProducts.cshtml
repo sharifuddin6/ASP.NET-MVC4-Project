@@ -11,12 +11,18 @@
         @foreach (var item in Model.Products)
         {
             <div class="product">
-                @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
-                <br />
-                <span>
-                    @Html.ActionLink("Abstract", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
-                    @Html.ActionLink("Content", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
-                </span>
+                <img src="@Url.Content("~/Content/img/default-cover.png")"/>
+                <div class="info">
+                    @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
+                    <br />
+                    @Html.ActionLink("[Abstract]", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
+                    @Html.ActionLink("[Content]", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
+
+                    @if (item.MatchCount > 0)
+                    {
+                        <p>Match count @item.MatchCount</p>
+                    }
+                </div>
             </div>
         }
     </div>

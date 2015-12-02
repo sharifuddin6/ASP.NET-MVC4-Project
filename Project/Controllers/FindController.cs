@@ -18,30 +18,10 @@ namespace Project.Controllers
         [HttpGet]
         public ActionResult Find()
         {
-            var sortMenu = new List<SelectListItem>
-            {
-                new SelectListItem()
-                {
-                    Text = "Relevance",
-                    Value = "0"
-                },
-                new SelectListItem()
-                {
-                    Text = "SortExample1",
-                    Value = "1"
-                },
-                new SelectListItem()
-                {
-                    Text = "SortExample2",
-                    Value = "2"
-                }
-            };
-
             return View("Find", new FindViewModel
             {
                 Products = _productRepository.GetAllProducts(),
-                Search = new Search(),
-                SortMenu = sortMenu
+                Search = new Search()
             });
         }
 
@@ -52,7 +32,12 @@ namespace Project.Controllers
             {
                 return PartialView("_listProducts", new FindViewModel
                 {
-                    Products = _productRepository.QueryProducts(query, selection)
+                    Products = _productRepository.QueryProducts(query, selection),
+                    SortOption = new SelectListItem()
+                    {
+                        Text = "Relevance",
+                        Value = "0"
+                    }
                 });
             }
             return PartialView("_listProducts", new FindViewModel
