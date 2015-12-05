@@ -1,11 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Project.Domain.Find
+﻿namespace Project.Domain.Find
 {
     public class Search
     {
-        public string Query { get; set; }
-
         public enum SearchMethod
         {
             BruteForceTitle = 0,
@@ -14,7 +10,8 @@ namespace Project.Domain.Find
             Example3 = 3
         }
 
-        [Required(ErrorMessage = "Select one item")]
-        public SearchMethod Selection { get; set;}
+        public string Query { get; set; }
+        
+        public SearchMethod Method { get; set;}
     }
 }

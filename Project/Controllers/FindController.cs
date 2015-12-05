@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Project.Domain.Repositories;
+﻿using Project.Domain.Repositories;
 using System.Web.Mvc;
 using Project.Domain.Find;
 using Project.ViewModels.Find;
@@ -16,7 +15,7 @@ namespace Project.Controllers
         }
 
         [HttpGet]
-        public ActionResult Find()
+        public ActionResult Index()
         {
             return View("Find", new FindViewModel
             {
@@ -25,24 +24,15 @@ namespace Project.Controllers
             });
         }
 
-        [HttpPost]
-        public ActionResult Find(string query, Search.SearchMethod selection)
+        [HttpGet]
+        public ActionResult Search(string query, Search.SearchMethod method)
         {
-            if (query != "")
+            var products = string.IsNullOrEmpty(query) ? _productRepository.GetAllProducts() :
+                                                         _productRepository.QueryProducts(query, method);
+            return View("Find", new FindViewModel
             {
-                return PartialView("_listProducts", new FindViewModel
-                {
-                    Products = _productRepository.QueryProducts(query, selection),
-                    SortOption = new SelectListItem()
-                    {
-                        Text = "Relevance",
-                        Value = "0"
-                    }
-                });
-            }
-            return PartialView("_listProducts", new FindViewModel
-            {
-                Products = _productRepository.GetAllProducts()
+                Products = products,
+                Search = new Search()
             });
         }
     }
