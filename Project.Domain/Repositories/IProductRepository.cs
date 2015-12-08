@@ -7,7 +7,7 @@ namespace Project.Domain.Repositories
     {
         IEnumerable<Product.Product> GetAllProducts();
 
-        IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod selection);
+        IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort);
 
         Product.Product GetProduct(string productId);
     }

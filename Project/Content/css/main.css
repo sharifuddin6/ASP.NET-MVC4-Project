@@ -37,6 +37,11 @@
 }
 
 /* line 25, ../sass/partials/_find.scss */
+.search-result {
+  width: 500px;
+}
+
+/* line 29, ../sass/partials/_find.scss */
 .sort-option {
   float: right;
 }

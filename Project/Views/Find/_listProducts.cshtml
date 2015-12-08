@@ -3,9 +3,21 @@
     ViewBag.Title = "List model";
 }
 
-<div class="search-result">
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".sort-option").on("change", function () {
+            $(".search-result").submit();
+        });
+    });
+</script>
+
+@using (Html.BeginForm("search", "Find", FormMethod.Get, new { @class = "search-result" }))
+{
     <span>Search results found @Model.Products.Count() items</span>
-    @Html.DropDownListFor(model => model.SortOption, Model.SortMenu, new { @class = "sort-option" })
+    @Html.EnumDropDownListFor(model => model.Sort, new {@class = "sort-option"})
+    @Html.HiddenFor(model => model.Query)
+    @Html.HiddenFor(model => model.Method)
 
     <div class="product-list">
         @foreach (var item in Model.Products)
@@ -13,10 +25,10 @@
             <div class="product">
                 <img src="@Url.Content("~/Content/img/default-cover.png")"/>
                 <div class="info">
-                    @Html.ActionLink(item.Title, "Product", "Product", new { productId = item.Id }, null)
-                    <br />
-                    @Html.ActionLink("[Abstract]", "Product", "Product", null, null, "content-1", new { productId = item.Id }, null)
-                    @Html.ActionLink("[Content]", "Product", "Product", null, null, "content-2", new { productId = item.Id }, null)
+                    @Html.ActionLink(item.Title, "Product", "Product", new {productId = item.Id}, null)
+                    <br/>
+                    @Html.ActionLink("[Abstract]", "Product", "Product", null, null, "content-1", new {productId = item.Id}, null)
+                    @Html.ActionLink("[Content]", "Product", "Product", null, null, "content-2", new {productId = item.Id}, null)
 
                     @if (item.MatchCount > 0)
                     {
@@ -26,4 +38,4 @@
             </div>
         }
     </div>
-</div>
+}

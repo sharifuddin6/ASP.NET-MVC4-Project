@@ -5,13 +5,14 @@
         public enum SearchMethod
         {
             BruteForceTitle = 0,
-            BruteForceAll = 1,
-            Example2 = 2,
-            Example3 = 3
+            BruteForceAll = 1
         }
 
-        public string Query { get; set; }
-        
-        public SearchMethod Method { get; set;}
+        public enum SortBy
+        {
+            Relevance = 0,
+            Newest = 1,
+            Oldest = 2
+        };
     }
 }

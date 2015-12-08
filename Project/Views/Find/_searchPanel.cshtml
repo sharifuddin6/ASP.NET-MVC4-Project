@@ -1,5 +1,5 @@
 ﻿@using Project.Domain.Find
-@model Search
+@model Project.ViewModels.Find.FindViewModel
 
 @using (Html.BeginForm("search", "Find", FormMethod.Get))
 {
@@ -7,6 +7,7 @@
         <legend>Search products</legend>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Query, new { @class = "search-field" })
+            @Html.HiddenFor(model => model.Sort)
             <input type="submit" class="search" />
         </div>
         <br/>

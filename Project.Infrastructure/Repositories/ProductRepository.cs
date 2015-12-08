@@ -26,18 +26,34 @@ namespace Project.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod selection)
+        public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort)
         {
-            switch (selection)
+            var products = QueryByMethod(query, method);
+
+            switch (sort)
+            {
+                case Search.SortBy.Relevance:
+                    return SortyByRelevance(products);
+                case Search.SortBy.Newest:
+                case Search.SortBy.Oldest:
+                default:
+                    return SortyByRelevance(products);
+            }
+        }
+
+        private IEnumerable<Product> SortyByRelevance(IEnumerable<Product> products)
+        {
+            return products.OrderByDescending(c => c.MatchCount);
+        }
+
+        private IEnumerable<Product> QueryByMethod(string query, Search.SearchMethod method)
+        {
+            switch (method)
             {
                 case Search.SearchMethod.BruteForceTitle:
                     return BruteForceTitle(query);
                 case Search.SearchMethod.BruteForceAll:
                     return BruteForceAll(query);
-                case Search.SearchMethod.Example2:
-                    return GetAllProducts();
-                case Search.SearchMethod.Example3:
-                    return GetAllProducts();
                 default:
                     return GetAllProducts();
             }
