@@ -61,8 +61,19 @@ namespace Project.Infrastructure.Repositories
 
         public Product GetProduct(string productId)
         {
-            var products = GetAllProducts();
-            return products.Single(e => e.Id == Convert.ToInt32(productId));
+            using (var context = new EntityContainer())
+            {
+                var product = context.pProducts.Single(p => p.ProductId == Convert.ToInt32(productId));
+                return new Product
+                {
+                    Id = product.ProductId,
+                    Title = product.Title,
+                    Author = product.Author,
+                    Abstract = product.Abstract,
+                    Content = product.Content,
+                    Thumbnail = product.Thumbnail
+                };
+            }
         }
 
         private IEnumerable<Product> BruteForceTitle(string query)
