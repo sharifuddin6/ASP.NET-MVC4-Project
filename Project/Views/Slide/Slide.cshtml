@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Slide";
+}
+
+<script type="text/javascript">
+    $(function() {
+        var $slide = $(".slide");
+        var slideCount = $slide.children().length;
+        var currentSlide = 1;
+        var previousSlide = slideCount;
+        var fade = 5000;
+
+        setInterval(function () {
+            $slide.find("li:eq(" + currentSlide + ")").fadeIn(fade);
+            $slide.find("li:eq(" + previousSlide + ")").fadeOut(fade);
+
+            currentSlide++;
+            previousSlide++;
+
+            if (currentSlide > slideCount) {
+                currentSlide = 1;
+            }
+
+            if (previousSlide > slideCount) {
+                previousSlide = 1;
+            }
+
+        }, fade*2);
+    });
+</script>
+
+<h2>Slide</h2>
+
+<div class="slide-container">
+    <ul class="slide">
+        <li><img src="~/Content/img/slide/image_1.png" alt="" /></li>
+        <li><img src="~/Content/img/slide/image_2.png" alt="" /></li>
+        <li><img src="~/Content/img/slide/image_3.png" alt="" /></li>
+        <li><img src="~/Content/img/slide/image_4.png" alt="" /></li>
+        <li><img src="~/Content/img/slide/image_5.png" alt="" /></li>
+        <li><img src="~/Content/img/slide/image_6.png" alt="" /></li>
+    </ul>
+</div>
