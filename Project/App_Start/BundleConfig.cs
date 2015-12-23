@@ -27,6 +27,10 @@ namespace Project
                       "~/Content/css/main.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Include application javascript
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                      "~/Scripts/app/slide.js"));
         }
     }
 }
