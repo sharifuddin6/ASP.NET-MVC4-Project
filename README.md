@@ -9,3 +9,4 @@ requires SQL database, restore db: https://www.dropbox.com/s/hpdovqf8bmjmgoj/pro
 * search_engine_example: entity framework database interaction in MVC
 <br />
 requires SQL database, restore db: https://www.dropbox.com/s/9xshxf9wnh9pe9l/project-db-2?dl=0
+* slideshow_images: javascript plugin for slideshow widget
