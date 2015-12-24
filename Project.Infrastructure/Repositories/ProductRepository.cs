@@ -63,7 +63,10 @@ namespace Project.Infrastructure.Repositories
         {
             using (var context = new EntityContainer())
             {
-                var product = context.pProducts.Single(p => p.ProductId == Convert.ToInt32(productId));
+                int prodId;
+                if (!int.TryParse(productId, out prodId)) throw new Exception("Error: Product id is not in correct format");
+
+                var product = context.pProducts.Single(p => p.ProductId == prodId);
                 return new Product
                 {
                     Id = product.ProductId,
