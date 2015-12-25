@@ -14,9 +14,9 @@ namespace Project.Controllers
         }
         
         [HttpGet]
-        public ActionResult Product(string productId)
+        public ActionResult Product(int productId = -1)
         {
-            if (productId == null)
+            if (productId == -1)
             {
                 return View("_noproduct");
             }

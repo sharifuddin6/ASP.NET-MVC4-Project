@@ -3,10 +3,21 @@
     ViewBag.Title = "List model";
 }
 
-<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var productsPerPage = 3;
+        for (var i = 1; i <= Math.ceil(@Model.TotalResult/productsPerPage); i++) {
+            var $selector = $("<a data-pagenum='" + i + "'>" + i + "</a>");
+            $selector.appendTo($(".page-selector"));
+        }
+
         $(".sort-option").on("change", function () {
+            $(".page-selected").val(1);
+            $(".search-result").submit();
+        });
+
+        $(".page-selector a").on("click", function() {
+            $(".page-selected").val($(this).data("pagenum"));
             $(".search-result").submit();
         });
     });
@@ -14,10 +25,11 @@
 
 @using (Html.BeginForm("search", "Find", FormMethod.Get, new { @class = "search-result" }))
 {
-    <span>Search results found @Model.Products.Count() items</span>
+    <span>Search results found @Model.TotalResult items</span>
     @Html.EnumDropDownListFor(model => model.Sort, new {@class = "sort-option"})
     @Html.HiddenFor(model => model.Query)
     @Html.HiddenFor(model => model.Method)
+    @Html.HiddenFor(model => model.Page, new {@class = "page-selected"})
 
     <div class="product-list">
         @foreach (var item in Model.Products)
@@ -38,4 +50,5 @@
             </div>
         }
     </div>
+    <div class="page-selector"></div>
 }

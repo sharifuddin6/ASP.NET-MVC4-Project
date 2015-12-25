@@ -19,21 +19,24 @@ namespace Project.Controllers
         {
             return View("Find", new FindViewModel
             {
-                Products = _productRepository.GetAllProducts()
+                Products = _productRepository.QueryProducts(),
+                TotalResult = _productRepository.QueryTotalResults()
             });
         }
 
         [HttpGet]
-        public ActionResult Search(string query, Search.SearchMethod method, Search.SortBy sort)
+        public ActionResult Search(string query, Search.SearchMethod method, Search.SortBy sort, int page = 1)
         {
-            var products = string.IsNullOrEmpty(query) ? _productRepository.GetAllProducts() :
-                                                         _productRepository.QueryProducts(query, method, sort);
+            var totalResults = _productRepository.QueryTotalResults(query, method);
+            var products = _productRepository.QueryProducts(query, method, sort, page);
             return View("Find", new FindViewModel
             {
                 Products = products,
                 Query = query,
                 Method = method,
-                Sort = sort
+                Sort = sort,
+                Page =  page,
+                TotalResult = totalResults
             });
         }
     }

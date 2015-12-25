@@ -10,10 +10,37 @@ namespace Project.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public IEnumerable<Product> GetAllProducts()
+        public int QueryTotalResults()
         {
             using (var context = new EntityContainer())
             {
+                return context.pProducts.Count();
+            }
+        }
+
+        public int QueryTotalResults(string query, Search.SearchMethod method)
+        {
+            using (var context = new EntityContainer())
+            {
+                switch (method)
+                {
+                    case Search.SearchMethod.BruteForceTitle:
+                        return context.pProducts.Count(product => product.Title.Contains(query));
+                    case Search.SearchMethod.BruteForceAll:
+                        return context.pProducts.Count(product =>
+                               product.Title.Contains(query) || product.Author.Contains(query) ||
+                               product.Abstract.Contains(query) || product.Content.Contains(query));
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(method), method, null);
+                }
+            }
+        }
+
+        public IEnumerable<Product> QueryProducts(int page = 1)
+        {
+            using (var context = new EntityContainer())
+            {
+                var productsPerPage = 3;
                 return Enumerable.Cast<Product>(context.pProducts.Select(product => new Product()
                 {
                     Id = product.ProductId,
@@ -22,28 +49,39 @@ namespace Project.Infrastructure.Repositories
                     Abstract = product.Abstract,
                     Content = product.Content,
                     Thumbnail = product.Thumbnail
-                })).ToList();
+                }))
+                .Skip(productsPerPage * (page-1))
+                .Take(productsPerPage)
+                .ToList();
             }
         }
 
-        public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort)
+        public IEnumerable<Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort, int page)
         {
+            if (string.IsNullOrEmpty(query))
+            {
+                return QueryProducts(page);
+            }
+
             var products = QueryByMethod(query, method);
 
             switch (sort)
             {
                 case Search.SortBy.Relevance:
-                    return SortyByRelevance(products);
+                    return SortyByRelevance(products, page);
                 case Search.SortBy.Newest:
                 case Search.SortBy.Oldest:
                 default:
-                    return SortyByRelevance(products);
+                    return SortyByRelevance(products, page);
             }
         }
 
-        private IEnumerable<Product> SortyByRelevance(IEnumerable<Product> products)
+        private IEnumerable<Product> SortyByRelevance(IEnumerable<Product> products, int page)
         {
-            return products.OrderByDescending(c => c.MatchCount);
+            var productsPerPage = 3;
+            return products.OrderByDescending(c => c.MatchCount)
+                           .Skip(productsPerPage * (page - 1))
+                           .Take(productsPerPage);
         }
 
         private IEnumerable<Product> QueryByMethod(string query, Search.SearchMethod method)
@@ -55,26 +93,18 @@ namespace Project.Infrastructure.Repositories
                 case Search.SearchMethod.BruteForceAll:
                     return BruteForceAll(query);
                 default:
-                    return GetAllProducts();
+                    return QueryProducts();
             }
         }
 
-        public Product GetProduct(string productId)
+        public Product GetProduct(int productId)
         {
             using (var context = new EntityContainer())
             {
-                int prodId;
-                if (!int.TryParse(productId, out prodId)) throw new Exception("Error: Product id is not in correct format");
-
-                var product = context.pProducts.Single(p => p.ProductId == prodId);
+                var product = context.pProducts.Single(p => p.ProductId == productId);
                 return new Product
                 {
-                    Id = product.ProductId,
-                    Title = product.Title,
-                    Author = product.Author,
-                    Abstract = product.Abstract,
-                    Content = product.Content,
-                    Thumbnail = product.Thumbnail
+                    Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
                 };
             }
         }
@@ -98,10 +128,19 @@ namespace Project.Infrastructure.Repositories
         {
             using (var context = new EntityContainer())
             {
-                var productList = Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) || product.Author.Contains(query) || product.Abstract.Contains(query) || product.Content.Contains(query)).Select(product => new Product()
-                {
-                    Id = product.ProductId, Title = product.Title, Author = product.Author, Abstract = product.Abstract, Content = product.Content, Thumbnail = product.Thumbnail
-                })).ToList();
+                var productList = Enumerable.Cast<Product>(context.pProducts.Where(product => product.Title.Contains(query) ||
+                                                                                              product.Author.Contains(query) ||
+                                                                                              product.Abstract.Contains(query) ||
+                                                                                              product.Content.Contains(query))
+                                                                            .Select(product => new Product()
+                                                                            {
+                                                                                Id = product.ProductId,
+                                                                                Title = product.Title,
+                                                                                Author = product.Author,
+                                                                                Abstract = product.Abstract,
+                                                                                Content = product.Content,
+                                                                                Thumbnail = product.Thumbnail
+                                                                            })).ToList();
 
                 UpdateProductMatchCount(query, productList, true);
 
@@ -113,8 +152,7 @@ namespace Project.Infrastructure.Repositories
         {
             foreach (var product in productList)
             {
-                var content = !allContent ? product.Title :
-                    product.Title + product.Author + product.Abstract + product.Content;
+                var content = !allContent ? product.Title : product.Title + product.Author + product.Abstract + product.Content;
                 product.MatchCount = CountMatchedCharacters(content, query);
             }
         }

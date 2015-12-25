@@ -12,5 +12,9 @@ namespace Project.ViewModels.Find
         public Search.SortBy Sort { get; set; }
 
         public string Query { get; set; }
+
+        public int Page { get; set; }
+
+        public int TotalResult { get; set; }
     }
 }

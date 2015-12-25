@@ -5,10 +5,14 @@ namespace Project.Domain.Repositories
 {
     public interface IProductRepository
     {
-        IEnumerable<Product.Product> GetAllProducts();
+        int QueryTotalResults();
 
-        IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort);
+        int QueryTotalResults(string query, Search.SearchMethod method);
 
-        Product.Product GetProduct(string productId);
+        IEnumerable<Product.Product> QueryProducts(int page = 1);
+
+        IEnumerable<Product.Product> QueryProducts(string query, Search.SearchMethod method, Search.SortBy sort, int page);
+
+        Product.Product GetProduct(int productId);
     }
 }

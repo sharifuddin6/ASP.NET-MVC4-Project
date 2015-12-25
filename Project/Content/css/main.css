@@ -45,3 +45,15 @@
 .sort-option {
   float: right;
 }
+
+/* line 33, ../sass/partials/_find.scss */
+.page-selector {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* line 38, ../sass/partials/_find.scss */
+.page-selector a {
+  margin: 10px;
+  padding: 10px;
+}

@@ -1,13 +1,22 @@
 ﻿@using Project.Domain.Find
 @model Project.ViewModels.Find.FindViewModel
 
-@using (Html.BeginForm("search", "Find", FormMethod.Get))
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".search-form").on("submit", function() {
+            $(".page-selected").val(1);
+        });
+    });
+</script>
+
+@using (Html.BeginForm("search", "Find", FormMethod.Get, new {@class = "search-form"}))
 {
     <fieldset>
         <legend>Search products</legend>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Query, new { @class = "search-field" })
             @Html.HiddenFor(model => model.Sort)
+            @Html.HiddenFor(model => model.Page, new { @class = "page-selected" })
             <input type="submit" class="search" />
         </div>
         <br/>
