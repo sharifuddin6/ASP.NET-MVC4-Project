@@ -10,3 +10,4 @@ requires SQL database, restore db: https://www.dropbox.com/s/hpdovqf8bmjmgoj/pro
 <br />
 requires SQL database, restore db: https://www.dropbox.com/s/e3qkoyrg27bew7f/project-db-4?dl=0
 * <b>slideshow_images</b>: javascript plugin for slideshow widget
+* <b>user_authentication</b>: user management and membership with identity v2 api (work in progress)
