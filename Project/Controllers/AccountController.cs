@@ -91,12 +91,18 @@ namespace Project.Controllers
             return View(model);
         }
 
+        //
+        // GET: /Account
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var db = new ApplicationDbContext();
             var users = db.Users;
-            var model = users.Select(user => new EditUserViewModel(user)).ToList();
+            var model = new List<EditUserViewModel>();
+            foreach (var user in users)
+            {
+                model.Add(new EditUserViewModel(user));
+            }
             return View(model);
         }
 
