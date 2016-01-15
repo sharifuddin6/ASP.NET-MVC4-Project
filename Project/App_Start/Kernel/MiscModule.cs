@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Project.Domain.Application;
+using Project.Infrastructure.Application;
 
 namespace Project.Kernel
 {
@@ -6,7 +8,9 @@ namespace Project.Kernel
     {
         protected override void Load(ContainerBuilder builder)
         {
-
+            builder.RegisterType<HttpContextService>()
+                   .As<IHttpContextService>()
+                   .InstancePerRequest();
         }
     }
 }
