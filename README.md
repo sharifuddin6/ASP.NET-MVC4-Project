@@ -27,7 +27,7 @@ branches:
   * renders slideshow for element
   * CSS3/SASS to style slideshow widget
 
-* <b>user_authentication</b>: user management and membership with identity v2 framework
+* <b>user_authentication</b>: user management and membership with identity v1 framework
 <br />[requires SQL database, restore db: https://www.dropbox.com/s/m2q8l8mui6fdhnr/project-db-5?dl=0]
   * simple user login, registration and management service
   * password hashing to database
