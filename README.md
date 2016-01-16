@@ -31,3 +31,8 @@ branches:
 <br />[requires SQL database, restore db: https://www.dropbox.com/s/m2q8l8mui6fdhnr/project-db-5?dl=0]
   * simple user login, registration and management service
   * password hashing to database
+ 
+* <b>user_authentication_v2</b>: user management and membership with identity v2 framework
+<br />[requires SQL database, restore db: https://www.dropbox.com/s/rv70sr3jnkglkop/project-db-6?dl=0]
+  * simple user login, registration and management service
+  * password hashing to database
