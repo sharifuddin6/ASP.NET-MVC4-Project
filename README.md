@@ -36,3 +36,5 @@ branches:
 <br />[requires SQL database, restore db: https://www.dropbox.com/s/rv70sr3jnkglkop/project-db-6?dl=0]
   * simple user login, registration and management service
   * password hashing to database
+  * account confirmation by email (work in progress)
+  * two factor authentication (work in progress)
