@@ -31,14 +31,14 @@ function slideLoop($slide, currentSlide) {
     return setInterval(function () {
         slideIndex = nextSlideIndex($slide, slideIndex);
         $(".slide-selector input:eq(" + slideIndex + ")").prop("checked", true);
-        $slide.find("li").fadeOut(fadeDuration);
+        $slide.find("li").css("display", "none");
         $slide.find("li:eq(" + slideIndex  + ")").fadeIn(fadeDuration);
     }, fadeDuration * 2);
 }
 
 function slideChange($slide, currentSlide) {
     var fadeDuration = 1000;
-    $slide.find("li").fadeOut(fadeDuration);
+    $slide.find("li").css("display", "none");
     $slide.find("li:eq(" + currentSlide + ")").fadeIn(fadeDuration);
 }
 
