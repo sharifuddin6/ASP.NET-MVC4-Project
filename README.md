@@ -1,5 +1,5 @@
-# ASP.NET-MVC4-Project
-ASP.NET MVC4 Project various experiments in branches. Some branches may require restoring a database to your localhost SQLServer named instance to work.
+# ASP.NET-MVC5-Project
+ASP.NET MVC5 Project various experiments in branches. Some branches may require restoring a database to your localhost SQLServer named instance to work.
 
 branches:
 * <b>entity_framework_example</b>: entity framework database interaction in MVC
