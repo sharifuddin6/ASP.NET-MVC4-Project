@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Net.Http.Formatting;
-using System.Web.Http;
-using Newtonsoft.Json.Serialization;
+﻿using System.Web.Http;
 
 namespace Project
 {

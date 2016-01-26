@@ -7,5 +7,9 @@ namespace Project.Domain.Repositories
         Product GetProduct(int id);
 
         IEnumerable<Product> GetAllProducts();
+
+        int GetProductCount();
+
+        void AddProduct(Product product);
     }
 }

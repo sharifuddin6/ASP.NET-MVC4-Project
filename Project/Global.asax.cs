@@ -1,10 +1,12 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using Project.Controllers;
 using Project.Kernel;
 
@@ -21,14 +23,16 @@ namespace Project
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // register modules.
-            var assembly = typeof(HomeController).Assembly;
             var builder = new ContainerBuilder();
-            builder.RegisterControllers(assembly);
+            builder.RegisterControllers(typeof(HomeController).Assembly);
             builder.RegisterModule<MiscModule>();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new AutofacWebApiDependencyResolver((IContainer) container);
         }
     }
 }

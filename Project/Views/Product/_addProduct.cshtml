@@ -1,0 +1,45 @@
+﻿@model Project.Domain.Product
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".product-form").submit(function (e) {
+            if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
+            var request = new ProductModel();
+
+            $.ajax({
+                type: "POST",
+                url: "api/stock",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(request),
+                success: function () {
+                    alert("post success");
+                }
+            });
+        });
+    });
+
+    function ProductModel() {
+        var self = this;
+        self.Id = $("#Id").val();
+        self.Name = $("#Name").val();
+        self.Stock = $("#Stock").val();
+        self.DateAdded = $("#DateAdded").val();
+    }
+</script>
+
+<form class="product-form">
+    <fieldset>
+        <legend>Add product</legend>
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name)
+        @Html.LabelFor(model => model.Stock)
+        @Html.TextBoxFor(model => model.Stock)
+
+        @Html.HiddenFor(model => model.DateAdded, new { Value = DateTime.Now })
+        @Html.HiddenFor(model => model.Id, new { Value = -1 })
+
+        <input type="submit" value="Add New Product" />
+    </fieldset>
+</form>

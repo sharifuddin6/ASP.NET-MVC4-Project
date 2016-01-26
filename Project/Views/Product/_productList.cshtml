@@ -1,0 +1,21 @@
+﻿@model Project.ViewModels.ProductViewModel
+
+<div class="product-list">
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date Added</th>
+            <th>Stock</th>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.DateAdded</td>
+                <td>@product.Stock</td>
+            </tr>
+        }
+    </table>
+</div>

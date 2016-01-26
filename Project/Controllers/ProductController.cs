@@ -1,41 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Mvc;
+using Project.Domain;
+using Project.Domain.Repositories;
+using Project.ViewModels;
 
 namespace Project.Controllers
 {
-    [RoutePrefix("api/product")]
-    public class ProductController : ApiController
+    public class ProductController : Controller
     {
-        // GET api/<controller>
-        [HttpGet]
-        [Route("")]
-        public IEnumerable<string> Get()
+        private readonly IProductRepository _productRepository;
+
+        public ProductController(IProductRepository productRepository)
         {
-            return new string[] { "value1", "value2" };
+            _productRepository = productRepository;
         }
 
-        // GET api/<controller>/5
-        [HttpGet]
-        [Route("{id:int}")]
-        public string Get(int id)
+        // GET: Product
+        public ActionResult Index()
         {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            return View("Product", new ProductViewModel()
+            {
+                Products = _productRepository.GetAllProducts(),
+                Product = new Product()
+            });
         }
     }
 }

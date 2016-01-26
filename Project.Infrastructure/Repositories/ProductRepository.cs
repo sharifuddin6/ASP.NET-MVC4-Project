@@ -8,11 +8,11 @@ namespace Project.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private IEnumerable<Product> products; 
+        private IEnumerable<Product> _products; 
 
         public ProductRepository()
         {
-            products = GenerateProducts();
+            _products = GenerateProducts();
         }
 
         private static IEnumerable<Product> GenerateProducts()
@@ -52,7 +52,7 @@ namespace Project.Infrastructure.Repositories
 
         public Product GetProduct(int id)
         {
-            var product = products.Single(p => p.Id == id);
+            var product = _products.Single(p => p.Id == id);
             return new Product()
             {
                 Id = product.Id,
@@ -64,7 +64,19 @@ namespace Project.Infrastructure.Repositories
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return products;
+            return _products;
+        }
+
+        public int GetProductCount()
+        {
+            return _products.Count();
+        }
+
+        public void AddProduct(Product product)
+        {
+            var collection = (ICollection<Product>) _products;
+            collection.Add(product);
+            _products = collection;
         }
     }
 }
